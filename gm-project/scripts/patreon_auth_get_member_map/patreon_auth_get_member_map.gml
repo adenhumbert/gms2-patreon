@@ -1,4 +1,4 @@
-/// @func				patreon_auth_get_member_info
+/// @func				patreon_auth_get_member_map
 /// @desc				Returns the ID of the map containing member info from the PatreonAuthHandler
 /// @param instID		The instance ID of the PatreonAuthHandler
 

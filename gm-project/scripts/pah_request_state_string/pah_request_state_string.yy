@@ -1,8 +1,8 @@
 {
-    "id": "e13039a3-05aa-4473-978b-c853ac0710eb",
+    "id": "8cbca5d0-5881-4dfd-a8e1-77aa7d637d19",
     "modelName": "GMScript",
     "mvc": "1.0",
-    "name": "patreon_auth_constants",
+    "name": "pah_request_state_string",
     "IsCompatibility": false,
     "IsDnD": false
 }

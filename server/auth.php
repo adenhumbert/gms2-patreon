@@ -2,10 +2,10 @@
 
 require_once "db.php";
 require_once "config/patreon.config.php";
-require_once 'patreon-php/API.php';
+require_once 'API_GMS2.php';
 require_once 'patreon-php/OAuth.php';
  
-use Patreon\API;
+use Patreon\API_GMS2;
 use Patreon\OAuth;
 
 $state = $_GET['state'];
@@ -26,20 +26,19 @@ if ( $_GET['code'] != '' ) {
 
 // Create API request for user data if access token is valid
 if ($access_token != '') {
-    $api_client = new API($access_token);
-    $patron_response = $api_client->fetch_user();
-    $user_id = $patron_response["data"]["id"];
+    $api_client = new API_GMS2($access_token);
+    $patron_response = $api_client->fetch_user_memberships();
+    $memberships = $patron_response["included"];
 } else {
     echo "<p class='error'>Unable to get access token.</p>";
 }
 
 // Extract membership data if API request was successful
-if ($user_id != '') {
+if (!empty($memberships)) {
     
     // Search user data for membership to your campaign
-    $memberships = $patron_response['included'];
     foreach ($memberships as $membership) {
-        $id = $membership['id'];
+        $id = $membership['relationships']['campaign']['data']['id'];
         if ($id == $campaign_id) {
             $member_info = base64_encode(json_encode($membership['attributes']));
         }
@@ -57,5 +56,5 @@ if ($user_id != '') {
     }
     
 } else {
-    echo "<p class='error'>Unable to obtain user ID.</p>";
+    echo "<p class='error'>Unable to obtain user memberships.</p>";
 }

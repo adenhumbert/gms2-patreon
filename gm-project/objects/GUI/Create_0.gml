@@ -1,0 +1,1 @@
+patreonObj = patreon_auth_handler_create(0, 0, layer);

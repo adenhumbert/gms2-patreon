@@ -19,7 +19,7 @@ switch (_result) {
 		pah_reset_timer();
 		requestID = -1;
 		var _memberJSON = base64_decode(_result)
-		memberInfo = json_decode(base64_decode(_memberJSON));
+		memberInfo = json_decode(_memberJSON);
 		if (PAH_DEBUG_MODE_ENABLED) show_debug_message("PatreonAuthHandler: Member Info > " + _memberJSON);
 		pah_request_session_cleanup();
 		break;

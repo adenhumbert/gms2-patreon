@@ -23,17 +23,17 @@ enum PAH_REQUEST_STATE {
 #region MACROS - DO NOT MODIFY
 
 // The URL used ask the user to login to Patreon
-#macro PAH_PATREON_REQUEST_URL			"https://www.patreon.com/oauth2/authorize?response_type=code&client_id={PARAM_CLIENT_ID}&redirect_uri={PARAM_REDIRECT_URI}&state={PARAM_STATE}"
+#macro PAH_PATREON_REQUEST_URL			"https://www.patreon.com/oauth2/authorize?response_type=code&client_id={PARAM_CLIENT_ID}&redirect_uri={PARAM_REDIRECT_URI}&state={PARAM_STATE}&scopes=identity"
 
 #endregion
 
 #region MACROS - MAY NEED MODIFICATION
 
 // Set this to the client_id for your Patreon app
-#macro PAH_CLIENT_ID					"YOUR_CLIENT_ID" 
+#macro PAH_CLIENT_ID					"YOUR CLIENT_ID" 
 
 // The URL that points to the directory containing your server scripts
-#macro PAH_SERVER_SCRIPTS_DIR			"https://your.site/patreon/"
+#macro PAH_SERVER_SCRIPTS_DIR			"https://YOURSITE.com/patreon/"
 
 // The full URI for the script that handles authorization requests
 // This URI must be present in the "Redirect URIs" in the settings for your Patreon app
